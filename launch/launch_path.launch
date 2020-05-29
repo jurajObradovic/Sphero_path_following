@@ -1,0 +1,39 @@
+<launch>
+
+	
+    <arg name="path1" default="circle"/>               <!-- type of path for the first group(circle, elipse, eight, spiral) -->
+    <arg name="path2" default="circle"/>                 <!-- type of path for  the second group(circle, elipse, eight, spiral, spin) -->
+    <arg name="circle_radius1" default="3"/>           <!-- circle radius of path1 -->
+    <arg name="eight_length1" default="6"/>            <!-- lenght of eight of path1 -->
+    <arg name="circle_radius2" default="2"/>           <!-- circle radius of path2 -->
+    <arg name="eight_length2" default="3"/>            <!-- lenght of eight of path2-->
+    <arg name="elipse_a1" default="3"/>                <!-- parameter a of elipse for the path1-->
+    <arg name="elipse_b1" default="2"/>                <!-- parameter b of elipse for the path1-->
+    <arg name="elipse_a2" default="3"/>                <!-- parameter a of elipse for the path2-->
+    <arg name="elipse_b2" default="2"/>                <!-- parameter b of elipse for the pazh2-->
+  
+    <arg name="node_start_delay" default="2.0" />            
+
+
+    <!-- Set arguments as ros parameter so all nodes can access them. -->
+   
+    <param name="path1" type="string" value="$(arg path1)"/>
+    <param name="path2" type="string" value="$(arg path2)"/>
+    <param name="circle_radius1" type="int" value="$(arg circle_radius1)"/>
+    <param name="eight_length1" type="int" value="$(arg eight_length1)"/>
+    <param name="circle_radius2" type="int" value="$(arg circle_radius2)"/>
+    <param name="eight_length2" type="int" value="$(arg eight_length2)"/>
+    <param name="elipse_a1" type="int" value="$(arg elipse_a1)"/>
+    <param name="elipse_b1" type="int" value="$(arg elipse_b1)"/>
+    <param name="elipse_a2" type="int" value="$(arg elipse_a2)"/>
+    <param name="elipse_b2" type="int" value="$(arg elipse_b2)"/>
+
+
+
+
+
+
+   <node name="follow_path_virtual" pkg="sphero_path_following" type="follow_path_virtual_node" output="screen"/>   
+   <node name="follow_path_virtual_2" pkg="sphero_path_following" type="follow_path_virtual_node_2" output="screen"/> 
+
+</launch>
